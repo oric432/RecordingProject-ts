@@ -1,0 +1,1 @@
+{"version":3,"file":"CustomApiError.js","sourceRoot":"","sources":["../../src/errors/CustomApiError.ts"],"names":[],"mappings":";;AAAA,MAAM,cAAe,SAAQ,KAAK;IAC9B,YAAY,OAAe;QACvB,KAAK,CAAC,OAAO,CAAC,CAAC;IACnB,CAAC;CACJ;AAED,kBAAe,cAAc,CAAC"}
