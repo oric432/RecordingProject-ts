@@ -1,12 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../MyContext";
-import { useFetchRecording } from "../hooks/CustomFetchHooks";
 import { formatTime } from "../utils";
 import AudioP from "./AudioP";
 
 const ChosenRecording: React.FC = () => {
     const { chosenRecording } = useContext(MyContext);
-    const { isLoading, error } = useFetchRecording(chosenRecording);
+
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_key, setKey] = useState(0);
 
@@ -19,22 +18,6 @@ const ChosenRecording: React.FC = () => {
         return (
             <div className="chosen_container">
                 <span className="container_label">Chose Recording</span>
-            </div>
-        );
-    }
-
-    if (isLoading) {
-        return (
-            <div className="chosen_container">
-                <span className="container_label">Loading...</span>
-            </div>
-        );
-    }
-
-    if (error) {
-        return (
-            <div className="chosen_container">
-                <span className="container_label">error: {error.message}</span>
             </div>
         );
     }

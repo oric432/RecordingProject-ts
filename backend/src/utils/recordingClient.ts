@@ -15,13 +15,14 @@ class MySocketIOClient {
     private setupEvents(): void {
         // Listen for the "connect" event
         this.socket.on("connect", () => {
+            console.log("client connected");
             this.onConnect();
         });
 
         // Listen for the "saveTemporaryRecording" event
         this.socket.on(
             "saveTemporaryRecording",
-            (data: { id: string; MCAdress: string }) => {
+            (data: { id: string; MCAddress: string }) => {
                 this.onSaveToDatabase(data);
             }
         );
@@ -52,7 +53,7 @@ class MySocketIOClient {
 
     private async onSaveToDatabase(data: {
         id: string;
-        MCAdress: string;
+        MCAddress: string;
     }): Promise<void> {
         try {
             const recording = await prisma.runningRecording.create({ data });
@@ -68,7 +69,7 @@ class MySocketIOClient {
         }
     }
 
-    private async onDeleteFromDatabase(id: string): Promise<void> {
+    private async onDeleteFromDatabase(id: string) {
         try {
             const recording = await prisma.runningRecording.delete({
                 where: {
@@ -99,6 +100,7 @@ class MySocketIOClient {
 
             if (!recording) {
                 console.log("could not add recording");
+                return;
             }
 
             console.log("added recording successfully");

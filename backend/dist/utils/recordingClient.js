@@ -15,6 +15,7 @@ class MySocketIOClient {
     setupEvents() {
         // Listen for the "connect" event
         this.socket.on("connect", () => {
+            console.log("client connected");
             this.onConnect();
         });
         // Listen for the "saveTemporaryRecording" event
@@ -77,6 +78,7 @@ class MySocketIOClient {
             });
             if (!recording) {
                 console.log("could not add recording");
+                return;
             }
             console.log("added recording successfully");
         }

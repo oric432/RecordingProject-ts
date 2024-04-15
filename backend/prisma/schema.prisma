@@ -3,11 +3,13 @@
 
 generator client {
   provider = "prisma-client-js"
+  maxPoolSize = 10
+  idleTimeoutMillis = 30000
 }
 
 datasource db {
   provider = "sqlite"
-  url      = "file:C:\\Other\\SqlDbs\\recordings.db"
+  url      = "file:C:\\Other\\SqlDbs\\recordings.db?connection_limit=1"
 }
 
 model Recording {
@@ -23,6 +25,6 @@ model Recording {
 
 model RunningRecording {
   id String @id 
-  MCAdress String
+  MCAddress String
   date DateTime @default(now())
 }

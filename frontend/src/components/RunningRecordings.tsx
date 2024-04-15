@@ -80,12 +80,8 @@ const RunningRecordings: React.FC = () => {
                                                 )}
                                             </div>
                                         </TableCell>
-                                        <TableCell>
-                                            {MCAddress.split(":")[0]}
-                                        </TableCell>
-                                        <TableCell>
-                                            {MCAddress.split(":")[1]}
-                                        </TableCell>
+                                        <TableCell>{MCAddress}</TableCell>
+                                        <TableCell>{MCAddress}</TableCell>
                                         <TableCell>
                                             <CounterComponent
                                                 count={timeOffset}
