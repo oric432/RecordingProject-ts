@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment variables
+.env
+.env.local
+
+# Editor/OS
+.DS_Store
+
+# ruflo / claude-flow generated artifacts
+ruvector.db
+.ruflo/
+.swarm/
+.hive-mind/
+*.ruflo.db
